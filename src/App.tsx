@@ -10,7 +10,6 @@ import {
   Mail,
   MapPin,
   Menu,
-  Play,
   ShieldCheck,
   Sparkles,
   Users,
@@ -83,11 +82,11 @@ function App() {
             <h1 id="hero-title">Welcome to<br /><em>Glenmachan</em></h1>
             <p className="hero-lede">A city on a hill, shining God’s hope across East Belfast.</p>
             <p className="hero-copy">We’re a welcoming church family where people of all ages can belong, grow in faith, and discover the hope found in Jesus Christ.</p>
-            <div className="hero-actions">
-              <a className="button button-primary" href="#visit">Plan your visit <ArrowRight size={17} /></a>
-              <a className="button button-primary" href="https://www.youtube.com/@GLENMACHANdotORG" target="_blank" rel="noreferrer"><Play size={16} fill="currentColor" /> Watch online</a>
-              <a className="button button-primary" href="#prayer">Request prayer <ArrowRight size={17} /></a><a className="button button-primary" href="https://www.facebook.com/glenmachan.church" target="_blank" rel="noreferrer"><Facebook size={16} /> Facebook</a>
-            </div>
+          </div>
+          <div className="hero-links" aria-label="Quick links">
+            <a className="hero-link" href="https://www.youtube.com/@GLENMACHANdotORG" target="_blank" rel="noreferrer"><Youtube size={15} /> <span>Watch online</span></a>
+            <a className="hero-link" href="#prayer"><HeartHandshake size={15} /> <span>Request prayer</span></a>
+            <a className="hero-link" href="https://www.facebook.com/glenmachan.church" target="_blank" rel="noreferrer"><Facebook size={15} /> <span>Facebook</span></a>
           </div>
           <div className="scroll-note"><span /> Scroll to explore</div>
         </section>
