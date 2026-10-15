@@ -81,7 +81,7 @@ function App() {
             <div className="eyebrow light mobile-eyebrow"><span /> A church family in East Belfast</div>
             <h1 id="hero-title">Welcome to<br /><em>Glenmachan</em></h1>
             <p className="hero-lede mobile-subtitle">A city on a hill, shining God’s hope across East Belfast.</p>
-            <p className="hero-copy">We’re a welcoming church family where people of all ages can belong, grow in faith, and discover the hope found in Jesus Christ.</p>
+            <p className="hero-copy mobile-copy">We’re a welcoming church family where people of all ages can belong, grow in faith, and discover the hope found in Jesus Christ.</p>
           </div>
           <div className="hero-links" aria-label="Quick links">
             <a className="hero-link" href="https://www.youtube.com/@GLENMACHANdotORG" target="_blank" rel="noreferrer"><Youtube size={15} /> <span>Watch online</span></a>
@@ -150,6 +150,7 @@ function App() {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            align-items: center;
             padding-top: 5rem !important;
             padding-bottom: 2rem !important;
             min-height: 100vh;
@@ -157,23 +158,53 @@ function App() {
           .mobile-hero-reposition {
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
+            justify-content: center;
+            align-items: center;
             flex-grow: 1;
-            padding-top: 0.5rem;
+            text-align: center !important;
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
           }
           .mobile-eyebrow {
-            margin-bottom: 0.75rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 1rem;
+          }
+          .mobile-hero-reposition h1 {
+            text-align: center;
           }
           .mobile-subtitle {
             text-align: center;
             width: 100%;
+          }
+          .mobile-copy {
+            text-align: center;
+            max-width: 90%;
+            margin-left: auto;
+            margin-right: auto;
           }
           .desktop-scroll-note {
             display: none !important;
           }
           .hero-links {
             margin-top: auto;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.85rem;
+          }
+          .hero-link {
+            font-size: 1.2rem !important;
+            padding: 0.5rem 1rem;
+          }
+          .hero-link svg {
+            width: 20px !important;
+            height: 20px !important;
           }
         }
       `}</style>
