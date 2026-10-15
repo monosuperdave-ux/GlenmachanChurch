@@ -77,10 +77,10 @@ function App() {
         <section className="hero" aria-labelledby="hero-title">
           <div className="hero-image" style={{ backgroundImage: `linear-gradient(90deg, rgba(8,26,38,.8), rgba(10,35,48,.34) 58%, rgba(8,26,38,.23)), url(${aerialImg})` }} />
           <div className="hero-glow" />
-          <div className="hero-content container">
-            <div className="eyebrow light"><span /> A church family in East Belfast</div>
+          <div className="hero-content container mobile-hero-reposition">
+            <div className="eyebrow light mobile-eyebrow"><span /> A church family in East Belfast</div>
             <h1 id="hero-title">Welcome to<br /><em>Glenmachan</em></h1>
-            <p className="hero-lede">A city on a hill, shining God’s hope across East Belfast.</p>
+            <p className="hero-lede mobile-subtitle">A city on a hill, shining God’s hope across East Belfast.</p>
             <p className="hero-copy">We’re a welcoming church family where people of all ages can belong, grow in faith, and discover the hope found in Jesus Christ.</p>
           </div>
           <div className="hero-links" aria-label="Quick links">
@@ -88,7 +88,7 @@ function App() {
             <a className="hero-link" href="#prayer"><HeartHandshake size={15} /> <span>Request prayer</span></a>
             <a className="hero-link" href="https://www.facebook.com/glenmachan.church" target="_blank" rel="noreferrer"><Facebook size={15} /> <span>Facebook</span></a>
           </div>
-          <div className="scroll-note"><span /> Scroll to explore</div>
+          <div className="scroll-note desktop-scroll-note"><span /> Scroll to explore</div>
         </section>
 
         <section className="welcome section container" id="about">
@@ -142,6 +142,41 @@ function App() {
       </main>
 
       <footer className="footer"><div className="container footer-grid"><div><a className="brand footer-brand" href="#top"><img src={logoImg} alt="" /><span>GLENMACHAN</span></a><p>A city on a hill, shining God’s hope across East Belfast.</p></div><div><span className="footer-label">Sunday services</span><strong>11:00am & 6:00pm</strong></div><div><span className="footer-label">Connect with us</span><div className="socials"><a href="https://www.facebook.com/glenmachan.church" aria-label="Facebook"><Facebook size={19} /></a><a href="https://www.youtube.com/@GLENMACHANdotORG" aria-label="YouTube"><Youtube size={19} /></a></div></div></div><div className="container footer-bottom"><span>© {new Date().getFullYear()} Glenmachan Church</span><span>Built on hope · Rooted in community</span></div></footer>
+
+      {/* Mobile structural CSS adjustments injected safely */}
+      <style>{`
+        @media (max-width: 768px) {
+          .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding-top: 5rem !important;
+            padding-bottom: 2rem !important;
+            min-height: 100vh;
+          }
+          .mobile-hero-reposition {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            flex-grow: 1;
+            padding-top: 0.5rem;
+          }
+          .mobile-eyebrow {
+            margin-bottom: 0.75rem;
+          }
+          .mobile-subtitle {
+            text-align: center;
+            width: 100%;
+          }
+          .desktop-scroll-note {
+            display: none !important;
+          }
+          .hero-links {
+            margin-top: auto;
+            margin-bottom: 1rem;
+          }
+        }
+      `}</style>
     </div>
   );
 }
