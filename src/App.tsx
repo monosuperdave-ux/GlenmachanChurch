@@ -77,22 +77,18 @@ function App() {
         <section className="hero" aria-labelledby="hero-title">
           <div className="hero-image" style={{ backgroundImage: `linear-gradient(90deg, rgba(8,26,38,.8), rgba(10,35,48,.34) 58%, rgba(8,26,38,.23)), url(${aerialImg})` }} />
           <div className="hero-glow" />
-          <div className="hero-content container mobile-hero-reposition">
-            <div className="eyebrow light mobile-eyebrow"><span /> A church family in East Belfast</div>
-            <div className="mobile-title-block">
-              <h1 id="hero-title">Welcome to<br /><em>Glenmachan</em></h1>
-            </div>
-            <div className="mobile-center-paragraph">
-              <p className="hero-lede mobile-subtitle">A city on a hill, shining God’s hope across East Belfast.</p>
-              <p className="hero-copy mobile-copy">We’re a welcoming church family where people of all ages can belong, grow in faith, and discover the hope found in Jesus Christ.</p>
-            </div>
+          <div className="hero-content container">
+            <div className="eyebrow light"><span /> A church family in East Belfast</div>
+            <h1 id="hero-title">Welcome to<br /><em>Glenmachan</em></h1>
+            <p className="hero-lede">A city on a hill, shining God’s hope across East Belfast.</p>
+            <p className="hero-copy">We’re a welcoming church family where people of all ages can belong, grow in faith, and discover the hope found in Jesus Christ.</p>
           </div>
-          <div className="hero-links mobile-hero-links" aria-label="Quick links">
+          <div className="hero-links" aria-label="Quick links">
             <a className="hero-link" href="https://www.youtube.com/@GLENMACHANdotORG" target="_blank" rel="noreferrer"><Youtube size={15} /> <span>Watch online</span></a>
             <a className="hero-link" href="#prayer"><HeartHandshake size={15} /> <span>Request prayer</span></a>
             <a className="hero-link" href="https://www.facebook.com/glenmachan.church" target="_blank" rel="noreferrer"><Facebook size={15} /> <span>Facebook</span></a>
           </div>
-          <div className="scroll-note desktop-scroll-note"><span /> Scroll to explore</div>
+          <div className="scroll-note"><span /> Scroll to explore</div>
         </section>
 
         <section className="welcome section container" id="about">
@@ -146,83 +142,6 @@ function App() {
       </main>
 
       <footer className="footer"><div className="container footer-grid"><div><a className="brand footer-brand" href="#top"><img src={logoImg} alt="" /><span>GLENMACHAN</span></a><p>A city on a hill, shining God’s hope across East Belfast.</p></div><div><span className="footer-label">Sunday services</span><strong>11:00am & 6:00pm</strong></div><div><span className="footer-label">Connect with us</span><div className="socials"><a href="https://www.facebook.com/glenmachan.church" aria-label="Facebook"><Facebook size={19} /></a><a href="https://www.youtube.com/@GLENMACHANdotORG" aria-label="YouTube"><Youtube size={19} /></a></div></div></div><div className="container footer-bottom"><span>© {new Date().getFullYear()} Glenmachan Church</span><span>Built on hope · Rooted in community</span></div></footer>
-
-      {/* Mobile structural CSS adjustments injected safely */}
-      <style>{`
-        @media (max-width: 768px) {
-          .hero {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: flex-start;
-            padding-top: 5rem !important;
-            padding-bottom: 2rem !important;
-            min-height: 100vh;
-          }
-          .mobile-hero-reposition {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: flex-start;
-            flex-grow: 1;
-            width: 100%;
-            padding-top: 0.5rem;
-          }
-          .mobile-eyebrow {
-            display: flex;
-            align-items: center;
-            margin-bottom: 0.5rem;
-            align-self: flex-start;
-          }
-          .mobile-title-block {
-            width: 100%;
-            text-align: left;
-            margin-bottom: auto;
-          }
-          .mobile-center-paragraph {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            margin: auto 0;
-            text-align: center !important;
-            padding: 1rem 0;
-          }
-          .mobile-subtitle {
-            text-align: center !important;
-            width: 100%;
-            margin-left: auto;
-            margin-right: auto;
-          }
-          .mobile-copy {
-            text-align: center !important;
-            max-width: 92%;
-            margin-left: auto;
-            margin-right: auto;
-          }
-          .desktop-scroll-note {
-            display: none !important;
-          }
-          .mobile-hero-links {
-            margin-top: auto;
-            margin-bottom: 1rem;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start !important;
-            gap: 0.85rem;
-            width: 100%;
-          }
-          .mobile-hero-links .hero-link {
-            font-size: 1.15rem !important;
-            padding: 0.35rem 0;
-          }
-          .mobile-hero-links .hero-link svg {
-            width: 20px !important;
-            height: 20px !important;
-          }
-        }
-      `}</style>
     </div>
   );
 }
