@@ -1,4 +1,4 @@
-import { FormEvent, useEffect, useState } from 'react';
+import { FormEvent, useState } from 'react';
 import {
   ArrowRight,
   CalendarDays,
@@ -10,7 +10,6 @@ import {
   Mail,
   MapPin,
   Menu,
-  Play,
   ShieldCheck,
   Sparkles,
   Users,
@@ -28,35 +27,11 @@ const activities = [
   { title: 'Support Ministries', items: ['Family Care in Cancer', 'Say Their Name Bereavement Group'], tone: 'slate' },
 ];
 
-const LATEST_VIDEO_URL = import.meta.env.VITE_SUPABASE_URL + '/functions/v1/latest-video';
-
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [formError, setFormError] = useState('');
-  const [latestVideo, setLatestVideo] = useState<{ videoId: string; title: string } | null>(null);
-  const [videoError, setVideoError] = useState(false);
-
-  useEffect(() => {
-    let cancelled = false;
-    const load = async () => {
-      try {
-        const res = await fetch(LATEST_VIDEO_URL);
-        if (!res.ok) throw new Error(`Request failed (${res.status})`);
-        const data = await res.json();
-        if (!cancelled && typeof data?.videoId === 'string' && /^[A-Za-z0-9_-]{6,}$/.test(data.videoId)) {
-          setLatestVideo({ videoId: data.videoId, title: String(data.title ?? 'Latest video') });
-        } else if (!cancelled) {
-          throw new Error('Unexpected response');
-        }
-      } catch {
-        if (!cancelled) setVideoError(true);
-      }
-    };
-    load();
-    return () => { cancelled = true; };
-  }, []);
 
   const closeMenu = () => setMenuOpen(false);
 
@@ -170,38 +145,33 @@ function App() {
               <div className="section-label">Catch up online</div>
               <h2>Watch <span>latest.</span></h2>
               <p className="media-intro">Missed a Sunday? Catch up on our most recent messages and livestreams anytime.</p>
-              <div className="video-card">
-                {latestVideo ? (
-                  <iframe
-                    key={latestVideo.videoId}
-                    title={latestVideo.title}
-                    src={`https://www.youtube-nocookie.com/embed/${latestVideo.videoId}`}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                    referrerPolicy="strict-origin-when-cross-origin"
-                  />
-                ) : videoError ? (
-                  <a className="video-fallback" href="https://www.youtube.com/@GLENMACHANdotORG" target="_blank" rel="noreferrer">
-                    <Play size={34} />
-                    <strong>Watch our latest service</strong>
-                    <span>on the Glenmachan YouTube channel</span>
-                  </a>
-                ) : (
-                  <div className="video-loading" aria-label="Loading latest video" />
-                )}
+              <div className="video-card" style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden', borderRadius: '12px' }}>
+                <iframe
+                  style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 0 }}
+                  title="Glenmachan Church YouTube Channel"
+                  src="https://www.youtube.com/embed?listType=user_uploads&list=GLENMACHANdotORG"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
               </div>
-              <a className="text-link" href="https://www.youtube.com/@GLENMACHANdotORG" target="_blank" rel="noreferrer">Visit our YouTube channel <ArrowRight size={17} /></a>
+              <a className="text-link" href="https://www.youtube.com/@GLENMACHANdotORG" target="_blank" rel="noreferrer" style={{ marginTop: '1rem', display: 'inline-flex' }}>
+                Visit our YouTube channel <ArrowRight size={17} />
+              </a>
             </div>
             <div className="media-col">
               <div className="section-label">Stay connected</div>
               <h2>From our <span>Facebook page.</span></h2>
               <p className="media-intro">News, encouragements and what's happening in the life of our church family.</p>
-              <div className="fb-card">
+              <div className="fb-card" style={{ borderRadius: '12px', overflow: 'hidden', minHeight: '380px' }}>
                 <iframe
                   title="Glenmachan Church Facebook feed"
-                  src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fglenmachan.church&tabs=timeline&width=500&height=620&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true"
-                  loading="lazy"
-                  referrerPolicy="strict-origin-when-cross-origin"
+                  src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fglenmachan.church&tabs=timeline&width=380&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true"
+                  width="100%"
+                  height="500"
+                  style={{ border: 'none', overflow: 'hidden' }}
+                  scrolling="no"
+                  frameBorder="0"
+                  allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
                 />
               </div>
             </div>
