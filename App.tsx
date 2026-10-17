@@ -148,8 +148,8 @@ function App() {
               <div className="video-card" style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden', borderRadius: '12px' }}>
                 <iframe
                   style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 0 }}
-                  title="Glenmachan Church YouTube Channel"
-                  src="https://www.youtube.com/embed?listType=user_uploads&list=GLENMACHANdotORG"
+                  title="Glenmachan Church YouTube Uploads"
+                  src="https://www.youtube-nocookie.com/embed/videoseries?list=UULW9i382z9-dIeR7wM9z18Q"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
                 />
@@ -162,14 +162,14 @@ function App() {
               <div className="section-label">Stay connected</div>
               <h2>From our <span>Facebook page.</span></h2>
               <p className="media-intro">News, encouragements and what's happening in the life of our church family.</p>
-              <div className="fb-card" style={{ borderRadius: '12px', overflow: 'hidden', minHeight: '380px' }}>
+              <div className="fb-card" style={{ borderRadius: '12px', overflow: 'hidden', background: '#fff', minHeight: '500px' }}>
                 <iframe
                   title="Glenmachan Church Facebook feed"
-                  src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fglenmachan.church&tabs=timeline&width=380&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true"
+                  src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fglenmachan.church&tabs=timeline&width=500&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true"
                   width="100%"
                   height="500"
-                  style={{ border: 'none', overflow: 'hidden' }}
-                  scrolling="no"
+                  style={{ border: 'none', overflow: 'hidden', background: 'transparent' }}
+                  scrolling="yes"
                   frameBorder="0"
                   allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
                 />
