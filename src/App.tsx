@@ -135,6 +135,40 @@ function App() {
           <div className="container"><div className="center-heading"><div className="section-label">Meet the team</div><h2>Here to <span>serve.</span></h2><p>Our pastors are here to walk with you through every season.</p></div><div className="leaders"><article className="leader-card"><div className="leader-avatar avatar-blue">PC</div><div><h3>Peter Comfort</h3><span>Senior Pastor</span><p>Providing spiritual leadership, biblical teaching and pastoral care to the Glenmachan church family.</p></div></article><article className="leader-card"><div className="leader-avatar avatar-orange">AS</div><div><h3>Alan Stephens</h3><span>Assistant Pastor</span><p>Supporting the ministry of the church through leadership, discipleship and pastoral care.</p></div></article></div></div>
         </section>
 
+        <section className="media section" id="watch">
+          <div className="container media-grid">
+            <div className="media-col">
+              <div className="section-label">Catch up online</div>
+              <h2>Watch <span>latest.</span></h2>
+              <p className="media-intro">Missed a Sunday? Catch up on our most recent messages and livestreams anytime.</p>
+              <div className="video-card">
+                <iframe
+                  title="Latest video from Glenmachan Church"
+                  src="https://www.youtube.com/embed?listType=uploads&list=UCPbVdwA94cp7y8XfDK0yatA"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                />
+              </div>
+              <a className="text-link" href="https://www.youtube.com/@GLENMACHANdotORG" target="_blank" rel="noreferrer">Visit our YouTube channel <ArrowRight size={17} /></a>
+            </div>
+            <div className="media-col">
+              <div className="section-label">Stay connected</div>
+              <h2>From our <span>Facebook page.</span></h2>
+              <p className="media-intro">News, encouragements and what's happening in the life of our church family.</p>
+              <div className="fb-card">
+                <iframe
+                  title="Glenmachan Church Facebook feed"
+                  src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fglenmachan.church&tabs=timeline&width=500&height=620&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true"
+                  loading="lazy"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section className="prayer section" id="prayer"><div className="container prayer-grid"><div className="prayer-copy"><div className="section-label light">You don’t have to face it alone</div><h2>How can we<br /><span>pray for you?</span></h2><p>Whatever you’re facing, we’d be honoured to pray with you. Share as much or as little as you’d like.</p><div className="confidential-note"><ShieldCheck size={20} /><span>Your request is handled with care and can be kept confidential.</span></div></div><div className="prayer-form-wrap">{submitted ? <div className="success-state"><div className="success-icon"><Check size={25} /></div><h3>Thank you for sharing.</h3><p>Your prayer request has been sent to our team. We’ll be praying with you.</p><button className="text-link" onClick={() => setSubmitted(false)}>Send another request <ArrowRight size={17} /></button></div> : <form className="prayer-form" onSubmit={handlePrayerSubmit}><div className="form-row"><label>Name<input name="name" type="text" placeholder="Your name" required maxLength={120} /></label><label>Email<input name="email" type="email" placeholder="you@example.com" required maxLength={320} /></label></div><label>Prayer request<textarea name="request" placeholder="How can we pray for you?" required maxLength={5000} rows={5} /></label><label className="check-label"><input name="confidential" type="checkbox" /> <span>I would like this request treated confidentially</span></label>{formError && <p className="form-error" role="alert">{formError}</p>}<button className="button button-primary" type="submit" disabled={submitting}>{submitting ? 'Sending…' : 'Submit prayer request'} <ArrowRight size={17} /></button></form>}</div></div></section>
 
         <section className="visit section" id="visit"><div className="container visit-grid"><div className="visit-details"><div className="section-label">Come and see us</div><h2>Find <span>us.</span></h2><p className="visit-intro">We’d love to welcome you through our doors.</p><div className="address"><MapPin size={21} /><div><strong>Church of God, Glenmachan</strong><p>13 Glenmachan Road<br />Belfast · BT4 2NL</p></div></div><div className="contact-line"><a href="tel:02890761676"><Clock3 size={18} /> 02890 761676</a><a href="mailto:glenmachanchurch@outlook.com"><Mail size={18} /> glenmachanchurch@outlook.com</a></div><a className="button button-dark" href="https://maps.google.com/?q=13+Glenmachan+Road+Belfast+BT4+2NL" target="_blank" rel="noreferrer">Get directions <ArrowRight size={17} /></a></div><div className="map-card"><iframe title="Map showing Church of God Glenmachan" src="https://www.google.com/maps?q=13%20Glenmachan%20Road%20Belfast%20BT4%202NL&output=embed" loading="lazy" /><div className="map-pin"><MapPin size={20} fill="currentColor" /></div></div></div></section>
