@@ -1,0 +1,4 @@
+# Supabase Edge Functions configuration
+
+[functions.latest-video]
+verify_jwt = false
