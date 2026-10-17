@@ -1,4 +1,4 @@
-import { FormEvent, useEffect, useState } from 'react';
+import { FormEvent, useState } from 'react';
 import {
   ArrowRight,
   CalendarDays,
@@ -27,35 +27,11 @@ const activities = [
   { title: 'Support Ministries', items: ['Family Care in Cancer', 'Say Their Name Bereavement Group'], tone: 'slate' },
 ];
 
-const LATEST_VIDEO_URL = import.meta.env.VITE_SUPABASE_URL + '/functions/v1/latest-video';
-
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [formError, setFormError] = useState('');
-  const [latestVideo, setLatestVideo] = useState<{ videoId: string; title: string } | null>(null);
-  const [videoError, setVideoError] = useState(false);
-
-  useEffect(() => {
-    let cancelled = false;
-    const load = async () => {
-      try {
-        const res = await fetch(LATEST_VIDEO_URL);
-        if (!res.ok) throw new Error(`Request failed (${res.status})`);
-        const data = await res.json();
-        if (!cancelled && typeof data?.videoId === 'string' && /^[A-Za-z0-9_-]{6,}$/.test(data.videoId)) {
-          setLatestVideo({ videoId: data.videoId, title: String(data.title ?? 'Latest video') });
-        } else if (!cancelled) {
-          throw new Error('Unexpected response');
-        }
-      } catch {
-        if (!cancelled) setVideoError(true);
-      }
-    };
-    load();
-    return () => { cancelled = true; };
-  }, []);
 
   const closeMenu = () => setMenuOpen(false);
 
@@ -166,24 +142,14 @@ function App() {
               <h2>Watch <span>latest.</span></h2>
               <p className="media-intro">Missed a Sunday? Catch up on our most recent messages and livestreams anytime.</p>
               <div className="video-card">
-                {latestVideo ? (
-                  <iframe
-                    key={latestVideo.videoId}
-                    title={latestVideo.title}
-                    src={`https://www.youtube-nocookie.com/embed/${latestVideo.videoId}`}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                    referrerPolicy="strict-origin-when-cross-origin"
-                  />
-                ) : videoError ? (
-                  <a className="video-fallback" href="https://www.youtube.com/@GLENMACHANdotORG" target="_blank" rel="noreferrer">
-                    <Play size={34} />
-                    <strong>Watch our latest service</strong>
-                    <span>on the Glenmachan YouTube channel</span>
-                  </a>
-                ) : (
-                  <div className="video-loading" aria-label="Loading latest video" />
-                )}
+                <iframe
+                  title="Latest video from Glenmachan Church"
+                  src="https://www.youtube.com/embed?listType=uploads&list=UCPbVdwA94cp7y8XfDK0yatA"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                />
               </div>
               <a className="text-link" href="https://www.youtube.com/@GLENMACHANdotORG" target="_blank" rel="noreferrer">Visit our YouTube channel <ArrowRight size={17} /></a>
             </div>
