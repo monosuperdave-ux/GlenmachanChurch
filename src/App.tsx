@@ -149,7 +149,7 @@ function App() {
                 <iframe
                   style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 0 }}
                   title="Glenmachan Church YouTube Uploads"
-                  src="https://www.youtube-nocookie.com/embed/videoseries?list=UULW9i382z9-dIeR7wM9z18Q"
+                  src="https://www.youtube-nocookie.com/embed/videoseries?list=UUPbVdwA94cp7y8XfDK0yatA"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
                 />
