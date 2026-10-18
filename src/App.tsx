@@ -163,17 +163,17 @@ function App() {
               <div className="section-label">Stay connected</div>
               <h2>From our <span>Facebook page.</span></h2>
               <p className="media-intro">News, encouragements and what's happening in the life of our church family.</p>
-              <div className="fb-card" style={{ borderRadius: '12px', overflow: 'hidden', background: '#fff', minHeight: '500px' }}>
-                <iframe
-                  title="Glenmachan Church Facebook feed"
-                  src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fglenmachan.church&tabs=timeline&width=500&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true"
-                  width="100%"
-                  height="500"
-                  style={{ border: 'none', overflow: 'hidden', background: 'transparent' }}
-                  scrolling="yes"
-                  frameBorder="0"
-                  allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                />
+              <div className="fb-card" style={{ borderRadius: '12px', overflow: 'hidden', background: '#fff', padding: '2rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center', minHeight: '380px', border: '1px solid rgba(0,0,0,0.08)', boxShadow: '0 10px 25px rgba(0,0,0,0.05)' }}>
+                <div style={{ width: '64px', height: '64px', borderRadius: '50%', background: '#1877F2', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', marginBottom: '1rem' }}>
+                  <Facebook size={32} />
+                </div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#0A2330', marginBottom: '0.5rem' }}>Glenmachan Church</h3>
+                <p style={{ color: '#555', fontSize: '0.95rem', marginBottom: '1.5rem', maxWidth: '320px' }}>
+                  Follow our official Facebook page for weekly updates, photo galleries, event news, and community encouragements.
+                </p>
+                <a className="button button-primary" href="https://www.facebook.com/glenmachan.church" target="_blank" rel="noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: '#1877F2', color: '#fff', padding: '0.75rem 1.5rem', borderRadius: '8px', textDecoration: 'none', fontWeight: '600' }}>
+                  <Facebook size={18} /> Visit our Facebook page <ArrowRight size={16} />
+                </a>
               </div>
             </div>
           </div>
@@ -181,7 +181,7 @@ function App() {
 
         <section className="prayer section" id="prayer"><div className="container prayer-grid"><div className="prayer-copy"><div className="section-label light">You don’t have to face it alone</div><h2>How can we<br /><span>pray for you?</span></h2><p>Whatever you’re facing, we’d be honoured to pray with you. Share as much or as little as you’d like.</p><div className="confidential-note"><ShieldCheck size={20} /><span>Your request is handled with care and can be kept confidential.</span></div></div><div className="prayer-form-wrap">{submitted ? <div className="success-state"><div className="success-icon"><Check size={25} /></div><h3>Thank you for sharing.</h3><p>Your prayer request has been sent to our team. We’ll be praying with you.</p><button className="text-link" onClick={() => setSubmitted(false)}>Send another request <ArrowRight size={17} /></button></div> : <form className="prayer-form" onSubmit={handlePrayerSubmit}><div className="form-row"><label>Name<input name="name" type="text" placeholder="Your name" required maxLength={120} /></label><label>Email<input name="email" type="email" placeholder="you@example.com" required maxLength={320} /></label></div><label>Prayer request<textarea name="request" placeholder="How can we pray for you?" required maxLength={5000} rows={5} /></label><label className="check-label"><input name="confidential" type="checkbox" /> <span>I would like this request treated confidentially</span></label>{formError && <p className="form-error" role="alert">{formError}</p>}<button className="button button-primary" type="submit" disabled={submitting}>{submitting ? 'Sending…' : 'Submit prayer request'} <ArrowRight size={17} /></button></form>}</div></div></section>
 
-        <section className="visit section" id="visit"><div className="container visit-grid"><div className="visit-details"><div className="section-label">Come and see us</div><h2>Find <span>us.</span></h2><p className="visit-intro">We’d love to welcome you through our doors.</p><div className="address"><MapPin size={21} /><div><strong>Church of God, Glenmachan</strong><p>13 Glenmachan Road<br />Belfast · BT4 2NL</p></div></div><div className="contact-line"><a href="tel:02890761676"><Clock3 size={18} /> 02890 761676</a><a href="mailto:glenmachanchurch@outlook.com"><Mail size={18} /> glenmachanchurch@outlook.com</a></div><a className="button button-dark" href="https://maps.google.com/?q=13+Glenmachan+Road+Belfast+BT4+2NL" target="_blank" rel="noreferrer">Get directions <ArrowRight size={17} /></a></div><div className="map-card"><iframe title="Map showing Church of God Glenmachan" src="https://www.google.com/maps?q=13%20Glenmachan%20Road%20Belfast%20BT4%202NL&output=embed" loading="lazy" /><div className="map-pin"><MapPin size={20} fill="currentColor" /></div></div></div></section>
+        <section className="visit section" id="visit"><div className="container visit-grid"><div className="visit-details"><div className="section-label">Come and see us</div><h2>Find <span>us.</span></h2><p className="visit-intro">We’d love to welcome you through our doors.</p><div className="address"><MapPin size={21} /><div><strong>Church of God, Glenmachan</strong><p>13 Glenmachan Road<br />Belfast · BT4 2NL</p></div></div><div className="contact-line"><a href="tel:02890761676"><Clock3 size={18} /> 02890 761676</a><a href="mailto:glenmachanchurch@outlook.com"><Mail size={18} /> glenmachanchurch@outlook.com</a></div><a className="button button-dark" href="https://maps.google.com/?q=13+Glenmachan+Road+Belfast+BT4+2NL" target="_blank" rel="noreferrer">Get directions <ArrowRight size={17} /></a></div><div className="map-card"><iframe title="Map showing Church of God Glenmachan" src="https://maps.google.com/?q=13%20Glenmachan%20Road%20Belfast%20BT4%202NL&output=embed" loading="lazy" /><div className="map-pin"><MapPin size={20} fill="currentColor" /></div></div></div></section>
 
       </main>
 
