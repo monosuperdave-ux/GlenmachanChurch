@@ -10,7 +10,6 @@ import {
   Mail,
   MapPin,
   Menu,
-  Play,
   ShieldCheck,
   Sparkles,
   Users,
@@ -22,7 +21,7 @@ import { supabase } from '@/lib/supabase';
 import logoImg from '@/assets/Logo.png';
 import worshipTeamImg from '@/assets/Worship_Team.jpg';
 import aerialImg from '@/assets/Glenmachan_soft_edges.jpg';
-import pizzaPosterImg from '@/assets/Pizza and praise.jpg'; // Place your image in src/assets/
+import pizzaPosterImg from '@/assets/Pizza and praise.jpg';
 
 const activities = [
   { title: 'Children & Youth', items: ['Girls’ Brigade · Tuesday 6:00pm', 'Boys’ Brigade · Thursday 6:00pm', 'Youth Club · Fortnightly Saturday 7:30pm'], tone: 'blue' },
@@ -98,33 +97,33 @@ function App() {
           <div className="scroll-note desktop-scroll-note"><span /> Scroll to explore</div>
         </section>
 
-        {/* FEATURED EVENT ANNOUNCEMENT BANNER */}
-        <section className="event-banner-section" style={{ background: '#0F2B3C', borderTop: '1px solid rgba(255,255,255,0.1)', borderBottom: '1px solid rgba(255,255,255,0.1)', padding: '2.5rem 0' }}>
-          <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', alignItems: 'center' }}>
+        {/* PIZZA & PRAISE FEATURED EVENT BANNER */}
+        <section className="event-banner-section" style={{ background: '#0F2B3C', borderTop: '1px solid rgba(255,255,255,0.1)', borderBottom: '1px solid rgba(255,255,255,0.1)', padding: '3rem 0' }}>
+          <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2.5rem', alignItems: 'center' }}>
             <div>
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: '#D97706', color: '#fff', padding: '4px 12px', borderRadius: '20px', fontSize: '0.85rem', fontWeight: 'bold', marginBottom: '1rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                <Utensils size={14} /> Half Term Special
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: '#D97706', color: '#fff', padding: '5px 14px', borderRadius: '20px', fontSize: '0.85rem', fontWeight: 'bold', marginBottom: '1rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                <Utensils size={15} /> Half Term Special
               </div>
-              <h2 style={{ color: '#fff', fontSize: '2.2rem', fontWeight: 'bold', marginBottom: '0.5rem', lineHeight: '1.2' }}>
+              <h2 style={{ color: '#fff', fontSize: '2.4rem', fontWeight: 'bold', marginBottom: '0.75rem', lineHeight: '1.15' }}>
                 Pizza & Praise Night!
               </h2>
-              <p style={{ color: '#94A3B8', fontSize: '1.1rem', marginBottom: '1.25rem' }}>
-                For all the family! Join us for a relaxed evening of worship, fellowship, pizza, and fun activities for kids.
+              <p style={{ color: '#94A3B8', fontSize: '1.15rem', marginBottom: '1.5rem', lineHeight: '1.6' }}>
+                For all the family! Join us for a relaxed evening of worship, fellowship, delicious pizza, and fun activities for kids. Everyone is invited!
               </p>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.25rem', color: '#E2E8F0', fontSize: '0.95rem', fontWeight: '500', marginBottom: '1.5rem' }}>
-                <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}><CalendarDays size={18} style={{ color: '#F59E0B' }} /> Sunday 25th October</span>
-                <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}><Clock3 size={18} style={{ color: '#F59E0B' }} /> 6:00pm</span>
-                <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}><MapPin size={18} style={{ color: '#F59E0B' }} /> Glenmachan Church</span>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', color: '#E2E8F0', fontSize: '1rem', fontWeight: '600', marginBottom: '2rem' }}>
+                <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><CalendarDays size={20} style={{ color: '#F59E0B' }} /> Sunday 25th October</span>
+                <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><Clock3 size={20} style={{ color: '#F59E0B' }} /> 6:00pm</span>
+                <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><MapPin size={20} style={{ color: '#F59E0B' }} /> Glenmachan Church</span>
               </div>
-              <a className="button button-primary" href="#visit" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: '#D97706', border: 'none', color: '#fff', padding: '0.75rem 1.5rem', borderRadius: '8px', fontWeight: '600', textDecoration: 'none' }}>
-                Everyone Welcome · Plan Your Visit <ArrowRight size={16} />
+              <a className="button button-primary" href="#visit" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: '#D97706', border: 'none', color: '#fff', padding: '0.85rem 1.75rem', borderRadius: '8px', fontWeight: '600', textDecoration: 'none', fontSize: '1rem' }}>
+                Plan Your Visit <ArrowRight size={18} />
               </a>
             </div>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
               <img 
                 src={pizzaPosterImg} 
                 alt="Pizza and Praise Night - Sunday 25th October at 6pm" 
-                style={{ width: '100%', maxWidth: '380px', borderRadius: '12px', boxShadow: '0 20px 30px rgba(0,0,0,0.3)', border: '2px solid rgba(255,255,255,0.1)' }} 
+                style={{ width: '100%', maxWidth: '380px', borderRadius: '14px', boxShadow: '0 25px 35px rgba(0,0,0,0.4)', border: '2px solid rgba(255,255,255,0.15)' }} 
               />
             </div>
           </div>
@@ -215,7 +214,7 @@ function App() {
 
         <section className="prayer section" id="prayer"><div className="container prayer-grid"><div className="prayer-copy"><div className="section-label light">You don’t have to face it alone</div><h2>How can we<br /><span>pray for you?</span></h2><p>Whatever you’re facing, we’d be honoured to pray with you. Share as much or as little as you’d like.</p><div className="confidential-note"><ShieldCheck size={20} /><span>Your request is handled with care and can be kept confidential.</span></div></div><div className="prayer-form-wrap">{submitted ? <div className="success-state"><div className="success-icon"><Check size={25} /></div><h3>Thank you for sharing.</h3><p>Your prayer request has been sent to our team. We’ll be praying with you.</p><button className="text-link" onClick={() => setSubmitted(false)}>Send another request <ArrowRight size={17} /></button></div> : <form className="prayer-form" onSubmit={handlePrayerSubmit}><div className="form-row"><label>Name<input name="name" type="text" placeholder="Your name" required maxLength={120} /></label><label>Email<input name="email" type="email" placeholder="you@example.com" required maxLength={320} /></label></div><label>Prayer request<textarea name="request" placeholder="How can we pray for you?" required maxLength={5000} rows={5} /></label><label className="check-label"><input name="confidential" type="checkbox" /> <span>I would like this request treated confidentially</span></label>{formError && <p className="form-error" role="alert">{formError}</p>}<button className="button button-primary" type="submit" disabled={submitting}>{submitting ? 'Sending…' : 'Submit prayer request'} <ArrowRight size={17} /></button></form>}</div></div></section>
 
-        <section className="visit section" id="visit"><div className="container visit-grid"><div className="visit-details"><div className="section-label">Come and see us</div><h2>Find <span>us.</span></h2><p className="visit-intro">We’d love to welcome you through our doors.</p><div className="address"><MapPin size={21} /><div><strong>Church of God, Glenmachan</strong><p>13 Glenmachan Road<br />Belfast · BT4 2NL</p></div></div><div className="contact-line"><a href="tel:02890761676"><Clock3 size={18} /> 02890 761676</a><a href="mailto:glenmachanchurch@outlook.com"><Mail size={18} /> glenmachanchurch@outlook.com</a></div><a className="button button-dark" href="https://maps.google.com/?q=13+Glenmachan+Road+Belfast+BT4+2NL" target="_blank" rel="noreferrer">Get directions <ArrowRight size={17} /></a></div><div className="map-card"><iframe title="Map showing Church of God Glenmachan" src="https://maps.google.com/?q=13%20Glenmachan%20Road%20Belfast%20BT4%202NL&output=embed" loading="lazy" /><div className="map-pin"><MapPin size={20} fill="currentColor" /></div></div></div></section>
+        <section className="visit section" id="visit"><div className="container visit-grid"><div className="visit-details"><div className="section-label">Come and see us</div><h2>Find <span>us.</span></h2><p className="visit-intro">We’d love to welcome you through our doors.</p><div className="address"><MapPin size={21} /><div><strong>Church of God, Glenmachan</strong><p>13 Glenmachan Road<br />Belfast · BT4 2NL</p></div></div><div className="contact-line"><a href="tel:02890761676"><Clock3 size={18} /> 02890 761676</a><a href="mailto:glenmachanchurch@outlook.com"><Mail size={18} /> glenmachanchurch@outlook.com</a></div><a className="button button-dark" href="https://maps.google.com/?q=13+Glenmachan+Road+Belfast+BT4+2NL" target="_blank" rel="noreferrer">Get directions <ArrowRight size={16} /></a></div><div className="map-card"><iframe title="Map showing Church of God Glenmachan" src="https://maps.google.com/maps?q=13%20Glenmachan%20Road%20Belfast%20BT4%202NL&t=&z=15&ie=UTF8&iwloc=&output=embed" loading="lazy" style={{ border: 0, width: '100%', height: '100%' }} /><div className="map-pin"><MapPin size={20} fill="currentColor" /></div></div></div></section>
 
       </main>
 
