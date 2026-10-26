@@ -13,7 +13,6 @@ import {
   ShieldCheck,
   Sparkles,
   Users,
-  Utensils,
   X,
   Youtube,
 } from 'lucide-react';
@@ -21,7 +20,6 @@ import { supabase } from '@/lib/supabase';
 import logoImg from '@/assets/Logo.png';
 import worshipTeamImg from '@/assets/Worship_Team.jpg';
 import aerialImg from '@/assets/Glenmachan_soft_edges.jpg';
-const pizzaPosterImg = '/images/Pizza_and_praise.jpg';
 
 const activities = [
   { title: 'Children & Youth', items: ['Girls’ Brigade · Tuesday 6:00pm', 'Boys’ Brigade · Thursday 6:00pm', 'Youth Club · Fortnightly Saturday 7:30pm'], tone: 'blue' },
@@ -106,38 +104,6 @@ function App() {
             <a className="hero-link" href="https://www.facebook.com/glenmachan.church" target="_blank" rel="noreferrer"><Facebook size={15} /> <span>Facebook</span></a>
           </div>
           <div className="scroll-note desktop-scroll-note"><span /> Scroll to explore</div>
-        </section>
-
-        {/* PIZZA & PRAISE FEATURED EVENT BANNER */}
-        <section className="event-banner-section" style={{ background: '#0F2B3C', borderTop: '1px solid rgba(255,255,255,0.1)', borderBottom: '1px solid rgba(255,255,255,0.1)', padding: '3rem 0' }}>
-          <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2.5rem', alignItems: 'center' }}>
-            <div>
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: '#D97706', color: '#fff', padding: '5px 14px', borderRadius: '20px', fontSize: '0.85rem', fontWeight: 'bold', marginBottom: '1rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                <Utensils size={15} /> Half Term Special
-              </div>
-              <h2 style={{ color: '#fff', fontSize: '2.4rem', fontWeight: 'bold', marginBottom: '0.75rem', lineHeight: '1.15' }}>
-                Pizza & Praise Night!
-              </h2>
-              <p style={{ color: '#94A3B8', fontSize: '1.15rem', marginBottom: '1.5rem', lineHeight: '1.6' }}>
-                For all the family! Join us for a relaxed evening of worship, fellowship, delicious pizza, and fun activities for kids. Everyone is invited!
-              </p>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', color: '#E2E8F0', fontSize: '1rem', fontWeight: '600', marginBottom: '2rem' }}>
-                <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><CalendarDays size={20} style={{ color: '#F59E0B' }} /> Sunday 25th October</span>
-                <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><Clock3 size={20} style={{ color: '#F59E0B' }} /> 6:00pm</span>
-                <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><MapPin size={20} style={{ color: '#F59E0B' }} /> Glenmachan Church</span>
-              </div>
-              <a className="button button-primary" href="#visit" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: '#D97706', border: 'none', color: '#fff', padding: '0.85rem 1.75rem', borderRadius: '8px', fontWeight: '600', textDecoration: 'none', fontSize: '1rem' }}>
-                Plan Your Visit <ArrowRight size={18} />
-              </a>
-            </div>
-            <div style={{ display: 'flex', justifyContent: 'center' }}>
-              <img 
-                src={pizzaPosterImg} 
-                alt="Pizza and Praise Night - Sunday 25th October at 6pm" 
-                style={{ width: '100%', maxWidth: '380px', borderRadius: '14px', boxShadow: '0 25px 35px rgba(0,0,0,0.4)', border: '2px solid rgba(255,255,255,0.15)' }} 
-              />
-            </div>
-          </div>
         </section>
 
         <section className="welcome section container" id="about">
