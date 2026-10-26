@@ -1,4 +1,4 @@
-import { FormEvent, useEffect, useState } from 'react';
+import { FormEvent, useEffect, useRef, useState } from 'react';
 import {
   ArrowRight,
   CalendarDays,
@@ -27,22 +27,52 @@ const activities = [
   { title: 'Support Ministries', items: ['Family Care in Cancer', 'Say Their Name Bereavement Group'], tone: 'slate' },
 ];
 
+// Facebook's own free Page Plugin (no view limits). Its width follows the space available (Facebook allows 180-500px).
+function FacebookPageFeed() {
+  const boxRef = useRef<HTMLDivElement>(null);
+  const [width, setWidth] = useState(340);
+
+  useEffect(() => {
+    const box = boxRef.current;
+    if (!box) return;
+    let timer: number | undefined;
+    const update = () => setWidth(Math.max(180, Math.min(500, Math.floor(box.clientWidth))));
+    const onResize = () => {
+      window.clearTimeout(timer);
+      timer = window.setTimeout(update, 250);
+    };
+    update();
+    window.addEventListener('resize', onResize);
+    return () => {
+      window.clearTimeout(timer);
+      window.removeEventListener('resize', onResize);
+    };
+  }, []);
+
+  const pageUrl = encodeURIComponent('https://www.facebook.com/glenmachan.church');
+  const src = `https://www.facebook.com/plugins/page.php?href=${pageUrl}&tabs=timeline&width=${width}&height=600&small_header=true&hide_cover=false&show_facepile=false&lazy=true`;
+
+  return (
+    <div ref={boxRef} style={{ display: 'flex', justifyContent: 'center' }}>
+      <iframe
+        title="Glenmachan Church Facebook page"
+        src={src}
+        width={width}
+        height={600}
+        style={{ border: 'none', overflow: 'hidden', maxWidth: '100%' }}
+        scrolling="no"
+        loading="lazy"
+        allow="encrypted-media"
+      />
+    </div>
+  );
+}
+
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [formError, setFormError] = useState('');
-
-  // Loads the Elfsight platform script (once) for the Facebook feed widget
-  useEffect(() => {
-    const src = 'https://elfsightcdn.com/platform.js';
-    if (!document.querySelector(`script[src="${src}"]`)) {
-      const script = document.createElement('script');
-      script.src = src;
-      script.async = true;
-      document.body.appendChild(script);
-    }
-  }, []);
 
   const closeMenu = () => setMenuOpen(false);
 
@@ -174,7 +204,7 @@ function App() {
               <h2>From our <span>Facebook page.</span></h2>
               <p className="media-intro">News, encouragements and what's happening in the life of our church family.</p>
               <div className="fb-card" style={{ borderRadius: '12px', overflow: 'hidden', background: '#fff', minHeight: '380px', border: '1px solid rgba(0,0,0,0.08)', boxShadow: '0 10px 25px rgba(0,0,0,0.05)' }}>
-                <div className="elfsight-app-fb98b956-de7a-43a0-8dae-e1d12f411c58" data-elfsight-app-lazy="" />
+                <FacebookPageFeed />
               </div>
               <a className="media-link" href="https://www.facebook.com/glenmachan.church" target="_blank" rel="noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginTop: '1rem', color: '#1877F2', fontWeight: 600, textDecoration: 'none' }}>
                 <Facebook size={18} /> Visit our Facebook page <ArrowRight size={16} />
